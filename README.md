@@ -1,112 +1,51 @@
-# Resource Pack Loader 
+# Resource Pack Loader
 
-A Minecraft Fabric **CLIENT-SIDE** mod for automatically enabling/disabling resource packs based on the server you join.
+A Fabric client-side mod that automatically enables/disables resource packs based on the server you join.
 
-## Features
+一个 Fabric 客户端模组，根据你加入的服务器自动启用/禁用资源包。
 
-✅ **Server-Based Profiles** - Configure different resource pack setups for each server  
-✅ **Automatic Switching** - Packs are automatically enabled/disabled when joining servers  
-✅ **No Red Screen** - Uses F3+A style reload, not the Mojang reload screen  
-✅ **Client-Side Only** - No server-side mod required  
-✅ **Easy Configuration** - GUI interface accessible via ModMenu or keybind (Right Shift)  
-✅ **Safe & Stable** - Includes cooldown protection and error handling  
+> **Unofficial 26.2 Port** — Community-maintained fork of [Anom-uxx's original mod](https://github.com/Anom-uxx/Resourcepack-loader-).
+>
+> **非官方 26.2 移植版** — 基于 [Anom-uxx 原模组](https://github.com/Anom-uxx/Resourcepack-loader-) 的社区维护分支。
+>
+> Original mod © 2026 Anom-uxx, MIT License · Fork maintained by MCforevers
 
-## Requirements
+## Features / 功能
 
-- **Minecraft**: 1.21.10 or 1.21.11
-- **Fabric Loader**: 0.16.0 or higher
-- **Fabric API**: Required
-- **ModMenu**: Optional (but recommended for easy config access)
+- **Server-Based Profiles** — Configure different resource pack setups for each server.
+  **服务器专属配置** — 为每个服务器单独设置资源包启用/禁用。
 
-## Installation
+- **Automatic Switching** — Packs are automatically enabled/disabled when joining servers.
+  **自动切换** — 加入服务器时自动应用配置。
 
-1. Download and install [Fabric Loader](https://fabricmc.net/use/)
-2. Download [Fabric API](https://modrinth.com/mod/fabric-api)
-3. Download this mod
-4. Place both mods in your `.minecraft/mods` folder
-5. Launch Minecraft with the Fabric profile
+- **No Red Screen** — Uses F3+A style reload, not the Mojang reload screen.
+  **无红色加载屏** — 使用 F3+A 风格的轻量重载，不弹出 Mojang 加载界面。
 
-## Usage
+- **Client-Side Only** — No server-side mod required.
+  **纯客户端** — 无需服务器端安装。
 
-### Opening the Configuration GUI
+- **Easy Configuration** — GUI accessible via ModMenu or a keybinding (default: Right Shift).
+  **配置简便** — 通过 ModMenu 或快捷键（默认右 Shift）打开配置界面。
 
-You can open the configuration screen in two ways:
+- **Safe & Stable** — Includes cooldown protection and error handling.
+  **稳定安全** — 包含冷却保护和错误处理。
 
-1. **Via ModMenu** (if installed): MouseButtonEvent "Mods" → "Resource Pack Loader" → "Config"
-2. **Via Keybind**: Press **Right Shift** (default key)
+## Requirements / 前置要求
 
-### Configuring Server Profiles
+- Minecraft 26.2
+- Fabric Loader 0.19.5+
+- Fabric API 0.161.0+26.2
+- Java 25
+- ModMenu (optional / 可选)
 
-1. Open the configuration GUI
-2. Enter a server address in the text field and click "Add Server"
-3. Select the server from the list
-4. MouseButtonEvent on resource packs to cycle through states:
-   - **○** (Gray) - No change (neutral)
-   - **✓** (Green) - Enable on this server
-   - **✗** (Red) - Disable on this server
-5. MouseButtonEvent "Save & Close" to apply your changes
+## Download / 下载
 
-### Default Profile
+Get the latest `resourcepack-loader-*.jar` from the [Releases](../../releases) page and put it in your `.minecraft/mods` folder.
 
-The "Default Profile" entry allows you to configure which packs should be enabled/disabled when you disconnect from a server or are in singleplayer.
+从 [Releases](../../releases) 页面下载最新的 `resourcepack-loader-*.jar`，放入 `.minecraft/mods` 文件夹。
 
-## How It Works
+## License / 许可证
 
-- **On Server Join**: The mod detects the server address and applies the configured profile
-- **On Server Leave**: Optionally applies the default profile (if configured)
-- **Resource Reload**: Uses Minecraft's internal reload mechanism (same as F3+A) for seamless switching
-- **Cooldown**: 2-second cooldown prevents rapid reload loops
-- **Safety**: Unknown servers are ignored unless explicitly configured
+MIT License. See [LICENSE](LICENSE) for details.
 
-## Configuration File
-
-The configuration is stored in `.minecraft/config/resourcepack-loader.json`:
-
-```json
-{
-  "defaultProfile": {
-    "enable": [],
-    "disable": []
-  },
-  "servers": {
-    "localhost": {
-      "enable": ["my_pack.zip"],
-      "disable": ["other_pack.zip"]
-    },
-    "example.net": {
-      "enable": ["pvp_ui.zip"],
-      "disable": []
-    }
-  }
-}
-```
-
-## Building from Source
-
-```bash
-git clone https://github.com/Anom-uxx/Resourcepack-loader-.git
-cd Resourcepack-loader-
-./gradlew build
-```
-
-The compiled JAR will be in `build/libs/`
-
-## Important Notes
-
-⚠️ **This is NOT a cheat mod** - It only manages local resource packs  
-⚠️ **Client-side only** - No server communication or packet manipulation  
-⚠️ **No auto-enabling** - Packs are only changed for explicitly configured servers  
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Credits
-
-- Developed by Anom-uxx
-- Built with [Fabric](https://fabricmc.net/)
-- ModMenu integration support
-
-## Support
-
-If you encounter any issues, please report them on the [GitHub Issues](https://github.com/Anom-uxx/Resourcepack-loader-/issues) page.
+MIT 许可证，详见 [LICENSE](LICENSE)。
